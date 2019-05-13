@@ -1,8 +1,8 @@
-import { TextParser } from 'codewave/lib/TextParser';
-import { Pos } from 'codewave/lib/positioning/Pos';
-import * as vscode from 'vscode';
+const TextParser = require('codewave/lib/TextParser').TextParser;
+const Pos = require('codewave/lib/positioning/Pos').Pos;
+const vscode = require('vscode');
 
-export class VSCodeEditor extends TextParser{
+class VSCodeEditor extends TextParser{
     /**
      * @param {vscode.TextEditor} editor
      */
@@ -65,7 +65,7 @@ export class VSCodeEditor extends TextParser{
      * @param {string} text
      */
     spliceText(start, end, text) {
-        this.editor.edit(editBuilder => {
+        return this.editor.edit(editBuilder => {
             editBuilder.replace(this.makeRange(start, end), text);
         });
     }
@@ -85,6 +85,7 @@ export class VSCodeEditor extends TextParser{
      * @param {number} [end]
      */
     setCursorPos(start, end = null) {
+        console.log('setCursorPos')
         if(end == null){
             end = start
         }
@@ -105,10 +106,14 @@ export class VSCodeEditor extends TextParser{
      * @param {Pos[]} selections
      */
     setMultiSel (selections){
-        this.editor.selections = selections.map((sel)=>{
+        const vsSelections = selections.map((sel)=>{
             const range = this.makeRange(sel.start, sel.end)
+            console.log('setMultiSel range',range,this.editor.document.offsetAt(new vscode.Position(0,2)))
             return new vscode.Selection(range.start, range.end)
         })
+        console.log('setMultiSel',selections,vsSelections)
+        this.editor.selection = vsSelections[0];
+        this.editor.selections = vsSelections;
     }
 
     /**
@@ -140,3 +145,5 @@ export class VSCodeEditor extends TextParser{
     }
         
 }
+
+exports.VSCodeEditor = VSCodeEditor

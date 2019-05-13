@@ -14,14 +14,22 @@
 		"Other"
 	],
 	"activationEvents": [
-		"onCommand:extension.helloWorld"
+		"onCommand:extension.codewaveActivate"
 	],
 	"main": "./extension.js",
 	"contributes": {
 		"commands": [
 			{
-				"command": "extension.helloWorld",
-				"title": "Hello World"
+				"command": "extension.codewaveActivate",
+				"title": "Extend CodeWave Abreviation"
+			}
+		],
+		"keybindings": [
+			{
+				"command": "extension.codewaveActivate",
+				"key": "ctrl+shift+e",
+				"mac": "shift+cmd+e",
+				"when": "editorTextFocus"
 			}
 		]
 	},

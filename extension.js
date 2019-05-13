@@ -1,12 +1,10 @@
-import { Codewave } from 'codewave'
-import { VSCodeEditor } from './src/VSCodeEditor';
-// const Codewave = require('codewave').Codewave; 
-// const VSCodeEditor = require('./src/VSCodeEditor').VSCodeEditor; 
+
+const Codewave = require('codewave').Codewave; 
+const VSCodeEditor = require('./src/VSCodeEditor').VSCodeEditor; 
 
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
-import * as vscode from 'vscode';
-// const vscode = require('vscode');
+const vscode = require('vscode');
 
 
 
@@ -25,7 +23,7 @@ function activate(context) {
 	// The command has been defined in the package.json file
 	// Now provide the implementation of the command with  registerCommand
 	// The commandId parameter must match the command field in package.json
-	let disposable = vscode.commands.registerCommand('extension.helloWorld', function () {
+	let disposable = vscode.commands.registerCommand('extension.codewaveActivate', function () {
 		// The code you place here will be executed every time your command is executed
 		const cw = new Codewave(new VSCodeEditor(vscode.window.activeTextEditor))
 		// Display a message box to the user
