@@ -85,7 +85,6 @@ class VSCodeEditor extends TextParser{
      * @param {number} [end]
      */
     setCursorPos(start, end = null) {
-        console.log('setCursorPos')
         if(end == null){
             end = start
         }
@@ -108,10 +107,8 @@ class VSCodeEditor extends TextParser{
     setMultiSel (selections){
         const vsSelections = selections.map((sel)=>{
             const range = this.makeRange(sel.start, sel.end)
-            console.log('setMultiSel range',range,this.editor.document.offsetAt(new vscode.Position(0,2)))
             return new vscode.Selection(range.start, range.end)
         })
-        console.log('setMultiSel',selections,vsSelections)
         this.editor.selection = vsSelections[0];
         this.editor.selections = vsSelections;
     }
@@ -133,7 +130,7 @@ class VSCodeEditor extends TextParser{
      * @returns {number}
      */
     findLineStart(pos) {
-        return this.editor.document.lineAt(this.editor.document.positionAt(pos)).range.start.character;
+        return this.editor.document.offsetAt(this.editor.document.lineAt(this.editor.document.positionAt(pos)).range.start);
     }
 
     /**
@@ -141,7 +138,7 @@ class VSCodeEditor extends TextParser{
      * @returns {number}
      */
     findLineEnd(pos) {
-        return this.editor.document.lineAt(this.editor.document.positionAt(pos)).range.end.character;
+        return this.editor.document.offsetAt(this.editor.document.lineAt(this.editor.document.positionAt(pos)).range.end);
     }
         
 }

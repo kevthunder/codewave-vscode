@@ -3,6 +3,7 @@
 	"displayName": "CodeWave",
 	"description": "CodeWave : The text editor helper.",
 	"version": "0.0.1",
+	"publisher": "kevthunder",
 	"repository": {
 		"type": "git",
 		"url": "git://github.com/kevthunder/codewave-vscode.git"

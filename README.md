@@ -1,65 +1,34 @@
 # codewave README
 
-This is the README for your extension "codewave". After writing up a brief description, we recommend including the following sections.
+Codewave : The text editor helper.
 
 ## Features
 
+Create abbreviation for you own code snippets and expand them with a push of a button, or use those already provided. Write code faster with this tool designed to give you what you need to be more productive without leaving your favorite text editor.
 Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
 
-For example if there is an image subfolder under your extension project workspace:
+## Getting started
 
-\!\[feature X\]\(images/feature-x.png\)
+When you have en editor open :
+- Press Ctrl+shift+E ( or Cmd+shift+E in osX)
+- Type "help"
+- Press Ctrl+shift+E again to show help
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
-
-## Requirements
-
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+```
+~~help~~
+```
 
 ## Extension Settings
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+This extension have no setting yet.
 
-For example:
+## Issues
 
-This extension contributes the following settings:
-
-* `myExtension.enable`: enable/disable this extension
-* `myExtension.thing`: set to `blah` to do something
-
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
+If you find any issue with this extension please create a ticket here : https://github.com/kevthunder/codewave-vscode/issues
 
 ## Release Notes
 
-Users appreciate release notes as you update your extension.
-
 ### 1.0.0
 
-Initial release of ...
+Initial release
 
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
------------------------------------------------------------------------------------------------------------
-
-## Working with Markdown
-
-**Note:** You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+CMD+V` on macOS or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux) or `Cmd+Space` (macOS) to see a list of Markdown snippets
-
-### For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
