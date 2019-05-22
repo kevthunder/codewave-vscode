@@ -1,6 +1,8 @@
 
 const Codewave = require('codewave').Codewave; 
 const VSCodeEditor = require('./src/VSCodeEditor').VSCodeEditor; 
+const FileStorageEngine = require('codewave/lib/storageEngines/FileStorageEngine').FileStorageEngine;
+const Command = require('codewave/lib/Command').Command;
 
 // The module 'vscode' contains the VS Code extensibility API
 // Import the module and reference it with the alias vscode in your code below
@@ -19,6 +21,8 @@ function activate(context) {
 	// Use the console to output diagnostic information (console.log) and errors (console.error)
 	// This line of code will only be executed once when your extension is activated
 	console.log('Congratulations, your extension "codewave" is now active!');
+
+	Command.storage = new FileStorageEngine(context.globalStoragePath)
 
 	// The command has been defined in the package.json file
 	// Now provide the implementation of the command with  registerCommand

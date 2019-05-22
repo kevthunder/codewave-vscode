@@ -10,6 +10,7 @@ class VSCodeEditor extends TextParser{
         super()
         this.editor = editor
     }
+
     textLen () {
         return this.text().length
     }
@@ -37,6 +38,7 @@ class VSCodeEditor extends TextParser{
         const p2 = this.editor.document.positionAt(end)
         return new vscode.Range(p1,p2)
     }
+
     /**
      * @param {string} [val]
      * @returns {string}
@@ -139,6 +141,13 @@ class VSCodeEditor extends TextParser{
      */
     findLineEnd(pos) {
         return this.editor.document.offsetAt(this.editor.document.lineAt(this.editor.document.positionAt(pos)).range.end);
+    }
+
+    /**
+     * @returns {string}
+     */
+    getLang() {
+        return this.editor.document.languageId;
     }
         
 }
