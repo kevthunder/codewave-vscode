@@ -1,6 +1,7 @@
 
 const Codewave = require('codewave').Codewave; 
 const VSCodeEditor = require('./src/VSCodeEditor').VSCodeEditor; 
+const EditorCache = require('./src/EditorCache').EditorCache; 
 const FileStorageEngine = require('codewave/lib/storageEngines/FileStorageEngine').FileStorageEngine;
 const Command = require('codewave/lib/Command').Command;
 
@@ -24,12 +25,16 @@ function activate(context) {
 
 	Command.storage = new FileStorageEngine(context.globalStoragePath)
 
+	let cache = new EditorCache();
+
 	// The command has been defined in the package.json file
 	// Now provide the implementation of the command with  registerCommand
 	// The commandId parameter must match the command field in package.json
 	let disposable = vscode.commands.registerCommand('extension.codewaveActivate', function () {
 		// The code you place here will be executed every time your command is executed
-		const cw = new Codewave(new VSCodeEditor(vscode.window.activeTextEditor))
+		const cw = cache.remember(vscode.window.activeTextEditor.document.fileName,function(){
+			return new Codewave(new VSCodeEditor(vscode.window.activeTextEditor))
+		})
 		// Display a message box to the user
 		cw.onActivationKey()
 	});
