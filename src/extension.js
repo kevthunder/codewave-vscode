@@ -1,7 +1,7 @@
 
 const Codewave = require('codewave').Codewave; 
-const VSCodeEditor = require('./src/VSCodeEditor').VSCodeEditor; 
-const EditorCache = require('./src/EditorCache').EditorCache; 
+const VSCodeEditor = require('./VSCodeEditor').VSCodeEditor; 
+const EditorCache = require('./EditorCache').EditorCache; 
 const FileStorageEngine = require('codewave/lib/storageEngines/FileStorageEngine').FileStorageEngine;
 const Command = require('codewave/lib/Command').Command;
 
@@ -24,6 +24,7 @@ function activate(context) {
 	console.log('Congratulations, your extension "codewave" is now active!');
 
 	Command.storage = new FileStorageEngine(context.globalStoragePath)
+	console.log(context.globalStoragePath)
 
 	let cache = new EditorCache();
 

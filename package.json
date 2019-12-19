@@ -17,7 +17,7 @@
 	"activationEvents": [
 		"onCommand:extension.codewaveActivate"
 	],
-	"main": "./extension.js",
+	"main": "./dist/extension.js",
 	"contributes": {
 		"commands": [
 			{
@@ -35,6 +35,9 @@
 		]
 	},
 	"scripts": {
+		"vscode:prepublish": "webpack --mode production",
+    "webpack": "webpack --mode development",
+    "webpack-dev": "webpack --mode development --watch",
 		"postinstall": "node ./node_modules/vscode/bin/install",
 		"test": "node ./node_modules/vscode/bin/test"
 	},
@@ -42,10 +45,12 @@
 		"codewave": "github:kevthunder/codewave"
 	},
 	"devDependencies": {
+		"@types/mocha": "^5.2.7",
+		"@types/node": "^10.12.21",
+		"eslint": "^5.13.0",
 		"typescript": "^3.3.1",
 		"vscode": "^1.1.34",
-		"eslint": "^5.13.0",
-		"@types/node": "^10.12.21",
-		"@types/mocha": "^5.2.7"
+		"webpack": "^4.41.4",
+		"webpack-cli": "^3.3.10"
 	}
 }
