@@ -36,13 +36,13 @@
 	},
 	"scripts": {
 		"vscode:prepublish": "webpack --mode production",
-    "webpack": "webpack --mode development",
-    "webpack-dev": "webpack --mode development --watch",
+		"webpack": "webpack --mode development",
+		"webpack-dev": "webpack --mode development --watch",
 		"postinstall": "node ./node_modules/vscode/bin/install",
 		"test": "node ./node_modules/vscode/bin/test"
 	},
 	"dependencies": {
-		"codewave": "github:kevthunder/codewave"
+		"codewave": "0.5.0"
 	},
 	"devDependencies": {
 		"@types/mocha": "^5.2.7",

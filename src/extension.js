@@ -33,7 +33,7 @@ function activate(context) {
 	// The commandId parameter must match the command field in package.json
 	let disposable = vscode.commands.registerCommand('extension.codewaveActivate', function () {
 		// The code you place here will be executed every time your command is executed
-		const cw = cache.remember(vscode.window.activeTextEditor.document.fileName,function(){
+		const cw = cache.remember(vscode.window.activeTextEditor,function(){
 			return new Codewave(new VSCodeEditor(vscode.window.activeTextEditor))
 		})
 		// Display a message box to the user
